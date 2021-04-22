@@ -3,7 +3,6 @@ import re
 import movlist
 
 
-
 while True :
     print("\n\n\t\t\t\"A\" is for adding any new movies.")
     print("\t\t\t\"P\" is for playing the game.")
@@ -26,6 +25,7 @@ while True :
         res = [i.start() for i in re.finditer(test_sub, test_str)]
         numoftimes = len(res)
         tin = []
+        print(mov_selected)
         for f in range(numoftimes) :
             tin.append(res[f]+1)
         if numoftimes == 0 :
@@ -57,11 +57,11 @@ while True :
                     print("\n\n\t\tYou Lose! Better Luck Next Time.")
                     print("\t\tThe name of the movie is "+mov_selected+".")
                 else :
-                    print("\n\n\t\tERROR 504! Please restart The program.")
+                    print("\n\n\t\tERROR 504! Please restart The program.\n\n")
                 break
             if count_of_loss == 10 and ord_name != mov_name:
-                print("\n\nYou Lose! Better Luck Next Time.")
-                print("The name of the movie is "+mov_selected+".")
+                print("\n\n\t\tYou Lose! Better Luck Next Time.")
+                print("\t\tThe name of the movie is "+mov_selected+".")
                 break
             a = input("Enter any letter : ")
             for y in range(length) :
