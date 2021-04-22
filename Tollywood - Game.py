@@ -25,7 +25,6 @@ while True :
         res = [i.start() for i in re.finditer(test_sub, test_str)]
         numoftimes = len(res)
         tin = []
-        print(mov_selected)
         for f in range(numoftimes) :
             tin.append(res[f]+1)
         if numoftimes == 0 :
