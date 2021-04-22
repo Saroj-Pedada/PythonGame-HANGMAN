@@ -69,9 +69,9 @@ while True :
                     print("Correct Guess! It is in position number "+str(y+1)+".")
                     mov_name.append(ord(str(a)))
                     mov_name = list(dict.fromkeys(mov_name))
-                elif str(a) not in str(mov_selected) :
-                    count_of_loss+=1
-                    print("Not present in the title. You lost a chance. You still have "+str(9-count_of_loss+1)+" chances left.")
+            if str(a) not in str(mov_selected) :
+                count_of_loss+=1
+                print("Not present in the title. You lost a chance. You still have "+str(9-count_of_loss+1)+" chances left.")
     elif str(user_input) == "A" or str(user_input) == "a" :
         while True :
             nameofmov = input("\n\t\tEnter the name of the movie to add : ")
