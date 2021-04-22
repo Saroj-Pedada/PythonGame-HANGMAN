@@ -3,6 +3,7 @@ import re
 import movlist
 
 
+
 while True :
     print("\n\n\t\t\t\"A\" is for adding any new movies.")
     print("\t\t\t\"P\" is for playing the game.")
@@ -39,14 +40,11 @@ while True :
         if numoftimes == 3 :
             print((tin[0]-1)*" _ "+" | "+(tin[1]-tin[0]-1)*" _ "+" | "+(tin[2]-tin[1]-1)*" _ "+" | "+(length-tin[2])*" _ ")
             print("\n\n\t\tCopy the above layout and start guessing. Good Luck!\n\n")
-        for x in range(0,9+unilen-numoftimes) :
+        if ord(" ") in ord_name :
+            mov_name.append(ord(" "))
+        for x in range(0,10+unilen-numoftimes) :
             mov_name = sorted(mov_name)
-            a = input("Enter any letter : ")
-            if count_of_loss == 9 and ord_name != mov_name:
-                print("\n\nYou Lose! Better Luck Next Time.")
-                print("The name of the movie is "+mov_selected+".")
-                break
-            elif count_of_loss < 9 and mov_name == ord_name :
+            if count_of_loss < 10 and mov_name == ord_name :
                 yn = input("You have exceeded the maximum number of trials. If you got the movie name type Y(YES) or N(NO) : ")
                 if str(yn) == "Y" or str(yn) == "y" :
                     ans = input("\n\t\tEnter the movie name : ")
@@ -60,15 +58,20 @@ while True :
                     print("\t\tThe name of the movie is "+mov_selected+".")
                 else :
                     print("\n\n\t\tERROR 504! Please restart The program.")
-            else :
-                for y in range(length) :
-                    if str(a) == str(mov_selected[y]) :
-                        print("Correct Guess! It is in position number "+str(y+1)+".")
-                        mov_name.append(ord(str(a)))
-                        mov_name = list(dict.fromkeys(mov_name))
-                if str(a) not in str(mov_selected) :
-                        count_of_loss+=1
-                        print("Not present in the title. You lost a chance. You still have "+str(9-count_of_loss+1)+" chances left.")
+                break
+            if count_of_loss == 10 and ord_name != mov_name:
+                print("\n\nYou Lose! Better Luck Next Time.")
+                print("The name of the movie is "+mov_selected+".")
+                break
+            a = input("Enter any letter : ")
+            for y in range(length) :
+                if str(a) == str(mov_selected[y]) :
+                    print("Correct Guess! It is in position number "+str(y+1)+".")
+                    mov_name.append(ord(str(a)))
+                    mov_name = list(dict.fromkeys(mov_name))
+                elif str(a) not in str(mov_selected) :
+                    count_of_loss+=1
+                    print("Not present in the title. You lost a chance. You still have "+str(9-count_of_loss+1)+" chances left.")
     elif str(user_input) == "A" or str(user_input) == "a" :
         while True :
             nameofmov = input("\n\t\tEnter the name of the movie to add : ")
@@ -82,16 +85,16 @@ while True :
             elif str(ny) == "N" or str(ny) == "n" :
                 break
             else :
-                print("\n\n\t\tERROR 504! Please restart the program")
+                print("\n\n\t\tERROR 504! Please restart the program\n\n\n")
                 break
     else :
-        print("\n\n\t\tERROR 504! Please restart the program")
+        print("\n\n\t\tERROR 504! Please restart the program\n\n\n")
     yon = input("\n\n\tPress Y(YES) to restart the program or N(NO) to stop : ")
     if str(yon) == "Y" or str(yon) == "y" :
         continue
     elif str(yon) == "N" or str(yon) == "n" :
-        print("\n\n\t\tThank You For Playing !")
+        print("\n\n\t\tThank You For Playing !\n\n\n")
         break
     else :
-        print("\n\n\t\tERROR 504! Please restart the program")
+        print("\n\n\t\tERROR 504! Please restart the program\n\n\n")
         break
